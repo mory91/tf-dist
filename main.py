@@ -1,6 +1,8 @@
 import json
 import os
 import sys
+import time
+
 import tensorflow as tf
 
 import mnist_setup
@@ -26,3 +28,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    time.sleep(10)
