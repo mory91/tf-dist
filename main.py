@@ -23,7 +23,7 @@ def main():
         # Model building/compiling need to be within `strategy.scope()`.
         multi_worker_model = mnist_setup.build_and_compile_cnn_model()
 
-    multi_worker_model.fit(multi_worker_dataset, epochs=3, steps_per_epoch=70)
+    multi_worker_model.fit(multi_worker_dataset, epochs=20, steps_per_epoch=100)
 
 
 if __name__ == '__main__':
