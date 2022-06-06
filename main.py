@@ -15,7 +15,7 @@ def main():
     num_workers = len(tf_config['cluster']['worker'])
 
     strategy = tf.distribute.MultiWorkerMirroredStrategy()
-
+    
     global_batch_size = WORKER_BATCH_SIZE * num_workers
     multi_worker_dataset = mnist_setup.mnist_dataset(global_batch_size)
 
