@@ -4,7 +4,7 @@ import numpy as np
 
 
 def mnist_dataset(batch_size):
-    (x_train, y_train), _ = tf.keras.datasets.mnist.load_data()
+    (x_train, y_train), _ = tf.keras.datasets.mnist.load_data('data/mnist.npz')
     # The `x` arrays are in uint8 and have values in the [0, 255] range.
     # You need to convert them to float32 with values in the [0, 1] range.
     x_train = x_train / np.float32(255)
