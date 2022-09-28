@@ -14,7 +14,12 @@ def main():
     tf_config = json.loads(os.environ['TF_CONFIG'])
     num_workers = len(tf_config['cluster']['worker'])
 
-    strategy = tf.distribute.MultiWorkerMirroredStrategy()
+    communication_options = tf.distribute.experimental.CommunicationOptions(
+        implementation=tf.distribute.experimental.CommunicationImplementation.NCCL
+    )
+    strategy = tf.distribute.MultiWorkerMirroredStrategy(
+        communication_options=communication_options
+    )
     
     global_batch_size = WORKER_BATCH_SIZE * num_workers
     multi_worker_dataset = mnist_setup.mnist_dataset(global_batch_size)
